@@ -13,14 +13,14 @@ const taskModule = fs
     if (dirent.isFile()) {
       return {
         filePath,
-        name: dirent.name
+        name: dirent.name.split('.ts')[0]
       };
     } else {
       filePath = `${filePath}/index.ts`;
       if (fs.existsSync(filePath)) {
         return {
           filePath,
-          name: dirent.name + '.ts'
+          name: dirent.name
         };
       } else {
         return null;
@@ -37,7 +37,8 @@ const finalConfig = [...taskModule].map(file => {
   return {
     input: file.filePath,
     output: {
-      dir: `dist/${file.name}`,
+      dir: `dist`,
+      entryFileNames: `${file.name}.js`,
       format: 'iife'
     },
     ...commonConfig
