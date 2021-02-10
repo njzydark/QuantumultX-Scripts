@@ -1,22 +1,46 @@
-import fs from "fs";
-import path from "path";
-import typescript from "@rollup/plugin-typescript";
+import fs from 'fs';
+import path from 'path';
+import typescript from '@rollup/plugin-typescript';
 
-const taskModulePath = path.resolve(__dirname, "./src/task");
-const taskModule = fs.readdirSync(taskModulePath).map((fileName) => `${taskModulePath}/${fileName}`);
+const taskModulePath = path.resolve(__dirname, './src/task');
+const taskModule = fs
+  .readdirSync(taskModulePath, { withFileTypes: true })
+  .map(dirent => {
+    if (dirent.isFile() && !dirent.name.includes('.ts')) {
+      return null;
+    }
+    let filePath = `${taskModulePath}/${dirent.name}`;
+    if (dirent.isFile()) {
+      return {
+        filePath,
+        name: dirent.name
+      };
+    } else {
+      filePath = `${filePath}/index.ts`;
+      if (fs.existsSync(filePath)) {
+        return {
+          filePath,
+          name: dirent.name + '.ts'
+        };
+      } else {
+        return null;
+      }
+    }
+  })
+  .filter(item => item);
 
 const commonConfig = {
-  output: {
-    dir: "dist",
-    format: "iife",
-  },
-  plugins: [typescript()],
+  plugins: [typescript()]
 };
 
-const finalConfig = [...taskModule].map((filePath) => {
+const finalConfig = [...taskModule].map(file => {
   return {
-    input: filePath,
-    ...commonConfig,
+    input: file.filePath,
+    output: {
+      dir: `dist/${file.name}`,
+      format: 'iife'
+    },
+    ...commonConfig
   };
 });
 
