@@ -94,3 +94,5 @@ const bootstrap = async () => {
 };
 
 bootstrap();
+
+export {};
