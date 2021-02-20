@@ -7,6 +7,7 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
     "noEmit": true,
     "baseUrl": "./",
     "paths": {
