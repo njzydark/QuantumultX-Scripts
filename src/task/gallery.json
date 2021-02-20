@@ -1,0 +1,14 @@
+{
+  "name": "NJZY'S Gallery",
+  "task": [
+    {
+      "config": "9 0 * * * {base_url}/github.js, img-url={base_url}/GitHub.png, tag=GitHub, enabled=false",
+      "addons": "{base_url}/github.rewrite.txt, tag=GitHub"
+    },
+    {
+      "config": "9 0 * * * {base_url}/v2ex.js, img-url={base_url}/V2EX.png, tag=V2EX, enabled=false",
+      "addons": "{base_url}/v2ex.rewrite.txt, tag=V2EX"
+    }
+  ],
+  "description": "Self use scripts for QuantumultX"
+}

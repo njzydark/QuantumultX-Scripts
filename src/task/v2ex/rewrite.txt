@@ -1,0 +1,2 @@
+hostname = *.v2ex.com
+^https:\/\/www\.v2ex\.com\/?$ url script-request-header {base_url}/v2ex.rewrite.js

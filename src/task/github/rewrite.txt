@@ -1,0 +1,2 @@
+hostname = github.com
+^https:\/\/github\.com\/search\?q=.*&type=users$ url script-request-header {base_url}/github.rewrite.js
