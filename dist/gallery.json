@@ -1,0 +1,14 @@
+{
+  "name": "NJZY'S Gallery",
+  "task": [
+    {
+      "config": "9 0 * * * https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/github.js, img-url=https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/GitHub.png, tag=GitHub, enabled=false",
+      "addons": "https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/github.rewrite.txt, tag=GitHub"
+    },
+    {
+      "config": "9 0 * * * https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/v2ex.js, img-url=https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/V2EX.png, tag=V2EX, enabled=false",
+      "addons": "https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/v2ex.rewrite.txt, tag=V2EX"
+    }
+  ],
+  "description": "Self use scripts for QuantumultX"
+}

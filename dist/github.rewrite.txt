@@ -1,0 +1,2 @@
+hostname = github.com
+^https:\/\/github\.com\/search\?q=.*&type=users$ url script-request-header https://raw.githubusercontent.com/njzydark/QuantumultX-Scripts/main/dist/github.rewrite.js
